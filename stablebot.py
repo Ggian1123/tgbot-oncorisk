@@ -17,7 +17,7 @@ import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 import os
-TOKEN = os.getenv("8425734749:AAGFbzhDdcmbxDKL55A3lEXWYFwzBYTgwx0")
+TOKEN = "8425734749:AAGFbzhDdcmbxDKL55A3lEXWYFwzBYTgwx0"
 bot = telebot.TeleBot(TOKEN)
 #для статистики 
 import sqlite3
