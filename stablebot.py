@@ -157,11 +157,6 @@ def show_test_result(call):
         reply_markup=kb
     )
 
-    if q_num > len(test_data):
-        return show_test_result(call)
-
-    q = test_data[q_num]
-
     kb = InlineKeyboardMarkup()
     for i, option in enumerate(q["options"]):
         kb.add(InlineKeyboardButton(option, callback_data=f"test_{i}"))
