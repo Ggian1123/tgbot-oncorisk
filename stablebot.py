@@ -36,7 +36,6 @@ CREATE TABLE IF NOT EXISTS regions (
 
 conn.commit()
 user_scores = {}
-cursor.execute("DELETE FROM regions")
 
 data = [
     ("Алматы", "≈300 на 100 000", "рост", "лёгкие, молочная железа, желудок"),
