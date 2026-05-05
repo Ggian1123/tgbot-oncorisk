@@ -143,11 +143,11 @@ def send_question(call):
         reply_markup=kb
     )
     def show_test_result(call):
-    data = user_test.get(call.from_user.id, {"score": 0})
-    score = data["score"]
+        data = user_test.get(call.from_user.id, {"score": 0})
+        score = data["score"]
 
     kb = InlineKeyboardMarkup()
-    kb.add(InlineKeyboardButton("⬅️ В меню", callback_data="menu"))
+        kb.add(InlineKeyboardButton("⬅️ В меню", callback_data="menu"))
 
     bot.edit_message_text(
         f"🧠 Результат теста:\n\n{score} из {len(test_data)}",
