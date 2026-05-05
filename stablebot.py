@@ -123,7 +123,6 @@ user_test = {}
 def start_test(call):
     user_test[call.from_user.id] = {"q": 1, "score": 0}
     send_question(call)
-    )
 def send_question(call):
     data = user_test[call.from_user.id]
     q_num = data["q"]
