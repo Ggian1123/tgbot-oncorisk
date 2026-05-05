@@ -123,9 +123,27 @@ user_test = {}
 def start_test(call):
     user_test[call.from_user.id] = {"q": 1, "score": 0}
     send_question(call)
+    )
 def send_question(call):
     data = user_test[call.from_user.id]
     q_num = data["q"]
+
+    # если вопросов больше нет
+    if q_num > 3:   # 👈 ЖЁСТКО задаём число
+        return show_test_result(call)
+
+    q = test_data[q_num]
+
+    kb = InlineKeyboardMarkup()
+    for i, option in enumerate(q["options"]):
+        kb.add(InlineKeyboardButton(option, callback_data=f"test_{i}"))
+
+    bot.edit_message_text(
+        f"🧠 Вопрос {q_num}:\n\n{q['q']}",
+        call.message.chat.id,
+        call.message.message_id,
+        reply_markup=kb
+    )
 def show_test_result(call):
     data = user_test.get(call.from_user.id, {"score": 0})
     score = data["score"]
