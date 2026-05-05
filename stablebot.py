@@ -142,6 +142,19 @@ def send_question(call):
         call.message.message_id,
         reply_markup=kb
     )
+    def show_test_result(call):
+        data = user_test[call.from_user.id]
+        score = data["score"]
+
+    kb = InlineKeyboardMarkup()
+    kb.add(InlineKeyboardButton("⬅️ В меню", callback_data="menu"))
+
+        bot.edit_message_text(
+            f"🧠 Результат теста:\n\n{score} из {len(test_data)}",
+            call.message.chat.id,
+            call.message.message_id,
+            reply_markup=kb
+    )
 
 #кейсы студенты
 case_data = {
